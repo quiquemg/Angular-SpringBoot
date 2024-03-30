@@ -1,0 +1,187 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <i class="bi bi-flower1"></i>
+            <span class="text-warning">Quique´s store</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="mostrarListaProductos()">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="modal" data-target="#formularioRegistro" data-formulario="#formularioRegistro" id="carrito" class="nav-link" tabindex="-1" aria-disabled="true">
+                        <i class="fas fa-cart-plus"></i> (<label id="contador" style="color:orange"></label>) Carrito
+                    </a>
+                </li> 
+                <li class="nav-item">
+                    <!--<a (click)="verificarUsuario()" id="misPedidos" class="nav-link">Mis pedidos</a>-->
+					<a id="misPedidos" class="nav-link">Mis pedidos</a>
+                </li>
+            </ul>
+			
+			<ul class="navbar-nav btn-group my-2 my-lg-0" role="group">
+                <a (click)="abrirModal(template)" style="color: white; cursor: pointer" class="dropdown-toggle" data-toggle="dropdown">
+					<!--<i class="fas fa-user-tie"></i> <span th:text="${logueo}"></span>-->
+					<i class="fas fa-user-tie"></i> {{ usuarioLogueado }}
+					<div class="dropdown-menu text-center dropdown-menu-right">
+						<a class="dropdown-item" href="#"> <img th:src="@{/images/user.png}" alt="60" height="60"/></a> 
+						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#formularioRegistro" ><span th:text="${correo}"></span></a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" th:href="@{/usuarios/salir/}"> <i class="fas fa-arrow-right"> Salir</i></a>                        
+					</div>
+				</a>
+            </ul>
+        </div>
+    </div>  
+</nav>
+
+<ng-template #template>
+  <!--<div class="modal-header">
+    <h4 class="modal-title pull-left">Login</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>-->
+  
+       <!--<div class="container col-lg-9">
+            <div class="modal-content">-->
+                <div class="pr-2 pt-1">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="text-center">
+                    <img src="path_to_your_image/user.png" width="100" height="100">
+                </div>
+
+                <div class="modal-header text-center">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#pills-iniciar">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#pills-registrar">Registrarse</a>
+                        </li>
+                    </ul>
+                </div>
+                
+				<div class="modal-body">
+                    <div class="tab-content" id="pills-tabContent">
+					
+						<div class="tab-pane fade show active" id="pills-iniciar" role="tabpanel">
+                                    <!-- Tu formulario de inicio de sesión aquí -->
+                            <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                                <div class="form-group">
+                                    <label>NIF:</label>
+                                    <input type="text"   [(ngModel)]="nif"     name="nif" class="form-control" placeholder="NIF">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password"          [(ngModel)]="password"          name="password" class="form-control" placeholder="Password">
+                                </div>                                   
+                                <button type="submit" name="accion" value="Validar" class="btn btn-outline-danger btn-block">Iniciar</button>
+                            </form>
+                        </div>
+					
+                        <!-- Iniciar Sesión -->
+                        
+
+                        <!-- Registrarse -->
+                        <div class="tab-pane fade" id="pills-registrar" role="tabpanel">
+                            <!--<form (ngSubmit)="registrarse()">-->
+							
+							<!--<form>
+                                <div class="form-group">
+                                    <label>DNI:</label>
+                                    <input type="text" [(ngModel)]="dni" name="dni" class="form-control" placeholder="DNI">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nombre:</label>
+                                    <input type="text" [(ngModel)]="nombre" name="nombre" class="form-control" placeholder="Nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos:</label>
+                                    <input type="text" [(ngModel)]="apellidos" name="apellidos" class="form-control" placeholder="Apellidos">
+                                </div>
+                                <div class="form-group">
+                                    <label>Dirección:</label>
+                                    <input type="text" [(ngModel)]="direccion" name="direccion" class="form-control" placeholder="Dirección">
+                                </div>
+                                <div class="form-group">
+                                    <label>Teléfono:</label>
+                                    <input type="text" [(ngModel)]="telefono" name="telefono" class="form-control" placeholder="Teléfono">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email:</label>
+                                    <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password:</label>
+                                    <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-outline-danger btn-block">Registrarse</button>
+                            </form>-->
+                        </div>
+                    </div>
+                </div><!--
+            </div>
+        </div>
+-->   
+  
+  
+  <!--<div class="modal-body">
+    
+  </div>-->
+</ng-template>
+
+<!--
+<div class="container" *ngFor="let product of productos">
+  <div class="row">
+    <div class="col-md-6">
+	  {{ product.nombre }}
+    </div>
+    <div class="col-md-6">
+	  {{ product.precio }}
+    </div>
+  </div>
+</div>
+
+</div>-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let producto of productos">
+      <div class="card">
+        <div class="card-header">
+          <label>{{ producto.nombre }}</label>
+        </div>
+        <div class="card-body">
+          <div class="text-left">
+            <span>{{ producto.precio }} €</span>
+          </div>
+          <div class="text-right">
+            <span class="badge">Stock</span>
+            <span id="stock_{{ producto.id }}">{{ producto.stock }}</span>
+          </div>
+        </div>
+        <img class="card-img-top" src="{{ producto.foto }}" alt="{{ producto.nombre }}" />
+        <div class="card-footer">
+          <div>
+            <input type="hidden" id="idProducto" value="{{ producto.id }}" />
+            <!-- <a class="btn btn-outline-info" href="#" data-formulario="formularioRegistro" data-producto-id="{{ producto.id }}">Agregar a carrito</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+<!-- product-list.component.html -->
+
+<div *ngFor="let product of productos">
+  <div>{{ product.nombre }}</div>
+  <div>{{ product.precio }}</div>
+  <!-- Otros detalles del producto -->
+</div>

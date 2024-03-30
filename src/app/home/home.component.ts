@@ -1,0 +1,36 @@
+// home.component.ts
+
+import { Component} from '@angular/core';
+import { Producto } from '../producto.model';
+//import { ProductService } from '../product.service';
+
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
+})
+export class HomeComponent {
+
+  //productos: Producto[] = []; // Inicializa la variable con un arreglo vacío
+  //constructor(private productService: ProductService) { }
+
+  /*ngOnInit(): void {
+    // Llama a la función para cargar los productos al inicializar el componente
+    this.cargarProductos();
+  }*/
+
+  /*cargarProductos(): void {
+    // Llama al servicio para obtener la lista de productos
+    this.productService.getProductos()
+      .subscribe(productos => {
+        this.productos = productos;
+      });
+  }
+
+  mostrarListaProductos(): void {
+    // Llama a la función para cargar los productos
+    this.cargarProductos();
+  }*/
+
+}

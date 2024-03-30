@@ -8,6 +8,7 @@ if (environment.production) {
   enableProdMode(); // Habilita el modo de producción si estamos en producción
 }*/
 
-
+/*
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+*/
