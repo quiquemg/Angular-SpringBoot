@@ -3,16 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
-
+import { NavbarComponent } from './navbar/navbar.component'; // Importa el componente app-navbar
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
   declarations: [
+	NavbarComponent,
+    
+	
     AppComponent,
-    NavbarComponent
+    
+
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  //providers: [NgbActiveModal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -26,15 +26,17 @@
             ],
             "styles": [
               "src/styles.css",
-			  "src/app/navbar/navbar.component.css",
-			  "node_modules/bootstrap/dist/css/bootstrap.min.css"
-            ],
+			  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+			  "https://use.fontawesome.com/releases/v5.8.2/css/all.css",
+			  "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+			  
+			  
+			  ],
             "scripts": [
-			"node_modules/jquery/dist/jquery.min.js",
-			"node_modules/popper.js/dist/umd/popper.min.js",
-			"node_modules/bootstrap/dist/js/bootstrap.min.js"
-			
-			
+			    "node_modules/jquery/dist/jquery.min.js",
+				"node_modules/popper.js/dist/umd/popper.min.js",
+				"node_modules/bootstrap/dist/js/bootstrap.min.js",
+			 "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
 			]
           },
           "configurations": {
